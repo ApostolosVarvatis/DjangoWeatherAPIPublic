@@ -1,6 +1,5 @@
 # PROJECT TITLE: WeatherAPI
 ## Github Repo: https://github.com/ApostolosVarvatis/DjangoWeatherAPIPublic
-## Deployed: http://margera.pythonanywhere.com/
 ## Description
 WeatherAPI is a REST API tool for weather data with four endpoints, created with Django and the Django-Rest-Framework, and uploaded online using Git and GitHub.
 
