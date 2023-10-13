@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherAPI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+    <section class="text-center">
+
+        <h1 class="mt-5 fw-semibold">Welcome to the Weather App</h1>
+    
+        <!-- Add a button to trigger the load_data function -->
+        <button type="button" class="btn btn-warning mt-3 fw-semibold fs-5" onclick="loadData()">Re-Load Weather Data</button>
+    
+        <!-- Add a div to display the response message -->
+        <div id="responseMessage" class="mt-3 fs-5 text-success fw-semibold"></div>
+
+        <h3 class="mt-5">Locations endpoint on: <a href="/api/getLocations">/api/getLocations</a></div>
+        <h3 class="mt-3">Latest forecast enpoint on: <a href="/api/getLatestForecast">/api/getLatestForecast</a></div>
+        <h3 class="mt-3">Average temprature endpoint on: <a href="/api/getAverageTemp">/api/getAverageTemp</a></div>
+        <h3 class="mt-3">Top N locations on: <a href="/api/getTopN">/api/getTopN</a></div>
+
+
+    </section>
+
+    <script>
+        // Function for AJAX request to your Django view
+        function loadData() {
+            // Request triggers the load_data function
+            fetch('/load_data/')
+                .then(response => response.text())
+                .then(data => {
+                    // Update the content of the responseMessage div with the response message
+                    document.getElementById('responseMessage').innerText = data;
+                })
+                .catch(error => {
+                    // Display an error message if issue
+                    document.getElementById('responseMessage').innerText = 'Error loading data';
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+
+</body>
+</html>
+

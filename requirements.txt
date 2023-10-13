@@ -1,0 +1,5 @@
+django
+djangorestframework
+datetime
+meteomatics
+whitenoise
